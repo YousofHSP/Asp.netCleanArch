@@ -1,0 +1,21 @@
+﻿@model CleanArch.Application.ViewModels.CourseViewModel 
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container body-content">
+    <div class="row course-content">
+        @foreach (var course in Model.Courses)
+        {
+            <div class="col">
+                <div class="course-image-container">
+                    <div class="course-image" style="background-image: url(@course.ImageUrl)"></div>
+                </div>
+                <span>@course.Name</span>
+            </div>
+        }
+    </div>
+</div>
