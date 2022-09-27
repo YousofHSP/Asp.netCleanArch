@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CleanArch.Application.ViewModels
+namespace CleanArch.Application.ViewModels.Account
 {
     public class RegisterViewModel
     {

@@ -1,4 +1,4 @@
-﻿using CleanArch.Application.ViewModels;
+﻿using CleanArch.Application.ViewModels.Account;
 using CleanArch.Domain.Models;
 using System;
 using System.Collections.Generic;
@@ -12,5 +12,6 @@ namespace CleanArch.Application.Interfaces
     {
         CheckUser CheckUser(string username, string email);
         int Register(User user);
+        bool IsExistUser(string email, string password);
     }
 }

@@ -27,6 +27,11 @@ namespace CleanArch.Infra.Data.Repository
             return _ctx.Users.Any(u => u.Email == email);
         }
 
+        public bool IsExistUser(string email, string password)
+        {
+            return _ctx.Users.Any(u => u.Email == email && u.Password == password);
+        }
+
         public bool IsExistUsername(string username)
         {
             return _ctx.Users.Any(u => u.Username == username);

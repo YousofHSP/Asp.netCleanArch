@@ -1,5 +1,6 @@
 ﻿using CleanArch.Application.Interfaces;
-using CleanArch.Application.ViewModels;
+using CleanArch.Application.Security;
+using CleanArch.Application.ViewModels.Account;
 using CleanArch.Domain.Interfaces;
 using CleanArch.Domain.Models;
 using System;
@@ -24,11 +25,16 @@ namespace CleanArch.Application.Services
             bool emailValid = _userRepository.IsExistEmail(email.Trim().ToLower());
 
             if (usernameValid)
-                return ViewModels.CheckUser.UsernameNotValid;
+                return ViewModels.Account.CheckUser.UsernameNotValid;
             else if (emailValid)
-                return ViewModels.CheckUser.EmailNotValid;
-            return ViewModels.CheckUser.Ok;
+                return ViewModels.Account.CheckUser.EmailNotValid;
+            return ViewModels.Account.CheckUser.Ok;
 
+        }
+
+        public bool IsExistUser(string email, string password)
+        {
+            return _userRepository.IsExistUser(email.Trim().ToLower(), PasswordHelper.EncodePasswordMd5(password));
         }
 
         public int Register(User user)
